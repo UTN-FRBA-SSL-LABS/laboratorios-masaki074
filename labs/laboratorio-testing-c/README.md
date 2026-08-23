@@ -351,27 +351,27 @@ _(SI si todas las líneas están cubiertas, NO si hay alguna con #####)_
 
 **P11** — ¿Qué diferencia hay entre un test unitario y uno de integración? ¿Cuál de los dos detectó primero el bug de `carrito_total`?
 
-> R:
+> R:El test unitario se usa para probar una sola función, mientras que un test de integración combina varias funciones para verificar que funcionen entre ellos, el test unitario detectó primero el bug de carrito_total.
 
 **P12** — El bug de capacidad en `carrito_agregar` causa un **buffer overflow**: se escribe más allá del array. ¿Por qué esto es peligroso en C pero no ocurriría en un lenguaje como Python o Java?
 
-> R:
+> R:El programa termina escribiendo más alla del array en la memoria, esa parte de la memoria puede (o no) estar ocupada por otra variable, haciendo que se pierda información que no se esperaba.
 
 **P13** — En este laboratorio encontraste los bugs escribiendo tests. ¿Qué tiene de mejor este enfoque frente a mirar el código directamente?
 
-> R:
+> R:Yo creo que hace encuentres problemas que no esperabas o casos que no tenes en cuenta al programar y ver el código.
 
 **P14** — El test `test_total_precio_unitario` (cantidad = 1) **pasó** a pesar del bug, mientras que `test_total_con_cantidad` (cantidad = 2) **falló**. ¿Por qué el primer test no detectó el bug?
 
-> R:
+> R:No lo detectó porque en donde se encontraba el bug, se olvidaba de multiplicar por la cantidad, solamente guardaba el valor de una sola unidad, por lo que al haber sola una unidad no había problemas
 
 ```
-BUG_EN_FUNCION_1=
+BUG_EN_FUNCION_1=carrito_total
 ```
 _(nombre de la función con el primer bug)_
 
 ```
-BUG_EN_FUNCION_2=
+BUG_EN_FUNCION_2=carrito_agregar
 ```
 _(nombre de la función con el segundo bug)_
 
