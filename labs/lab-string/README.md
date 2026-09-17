@@ -467,7 +467,7 @@ Antes de implementar, discutí con tu equipo:
 
 **P6** — Conclusión de la discusión:
 
-> R:
+> R:Si bien tendría sentido que el método ToInteger esté en la biblioteca String, puede suceder que es mucha la responsabilidad asignada a la biblioteca el manejo de conversiones a los diferentes tipos de datos numericos.
 
 ---
 
@@ -494,7 +494,7 @@ int ToInteger(const char *s) {
 
 **P7** — El loop acumula correctamente el valor en `resultado`. ¿Qué está mal en el `return`?
 
-> R:
+> R:Falta multiplicarle el resultado, en el código original o devolvía 1 o -1, por es tenes que multiplicarlo por el resultado
 
 #### Corrección
 
@@ -506,10 +506,10 @@ make test
 
 **P8** — La expresión `*s - '0'` convierte un carácter dígito al entero correspondiente. ¿Por qué funciona? ¿Qué devuelve `'3' - '0'`?
 
-> R:
+> R:Hace la resta de enteros, como en la tabla ascii los numeros aparecen en orden de 0~9, entonces el código ascii va a ser sucesivo, en este caso '3' - '0' equivaldría a 51-48, que da como resultado 3.
 
 ```
-TOINTEGER_PASA=
+TOINTEGER_PASA=SI
 ```
 _(escribí SI cuando todos los tests de ToInteger pasen)_
 
